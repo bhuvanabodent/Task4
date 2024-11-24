@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Book Showcase</h1>
+        <p>Your ultimate destination for exploring amazing books and creating personalized notes.</p>
+        <nav>
+            <ul>
+                <li><a onclick="showSection('about')">About</a></li>
+                <li><a onclick="showSection('books')">Books</a></li>
+                <li><a onclick="showSection('notes')">Notes</a></li>
+                <li><a onclick="showSection('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="active">
+        <h2>About</h2>
+        <p>Welcome to the Book Showcase! Discover various genres, including fiction, non-fiction, biographies, and mystery. 
+        Add your notes and embark on your literary journey.</p>
+        <p><i>"A room without books is like a body without a soul."</i></p>
+    </section>
+
+    <!-- Books Section -->
+    <section id="books">
+        <h2>Books</h2>
+        <div class="filters">
+            <label for="filter-category">Category:</label>
+            <select id="filter-category">
+                <option value="all">All</option>
+                <option value="fiction">Fiction</option>
+                <option value="non-fiction">Non-Fiction</option>
+                <option value="mystery">Mystery</option>
+                <option value="biographies">Biographies</option>
+                <option value="autobiographies">Autobiographies</option>
+                <option value="sci-fi">Sci-Fi</option>
+            </select>
+
+            <label for="sort-options">Sort By:</label>
+            <select id="sort-options">
+                <option value="title">Title</option>
+                <option value="rating">Rating</option>
+                <option value="price">Price</option>
+            </select>
+        </div>
+        <div id="book-list" class="book-list">
+            <!-- Dynamic book items will be populated here -->
+        </div>
+    </section>
+
+    <!-- Notes Section -->
+    <section id="notes">
+        <h2>Your Notes</h2>
+        <input type="text" id="note-input" placeholder="Write a note...">
+        <button id="add-note">Add Note</button>
+        <ul id="notes-list"></ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form" class="contact-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Visit our website again! © 2024 Book Showcase. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Show the selected section and hide others
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) selectedSection.classList.add('active');
+        }
+
+        // Add Notes Functionality
+        const notesList = document.getElementById('notes-list');
+        const noteInput = document.getElementById('note-input');
+
+        document.getElementById('add-note').addEventListener('click', () => {
+            const noteText = noteInput.value.trim();
+            if (noteText) {
+                const li = document.createElement('li');
+                li.textContent = noteText;
+                notesList.appendChild(li);
+                noteInput.value = '';
+            }
+        });
+
+        // Dynamic book list population (example data)
+        const books = [
+    { title: "The girls in the house", category: "fiction", rating: 4.8, price: 200, image:'images/cherry2.jpg' },
+    { title: "Sudha murtyh thousand stiches", category: "non-fiction", rating: 4.7, price: 20, image:"https://m.media-amazon.com/images/I/812vIYc8luL._SY342_.jpg" },
+    { title: "Samsara", category: "sci-fi", rating: 4.6, price: 400, image:"https://m.media-amazon.com/images/I/813P4lxRaLL._SY342_.jpg" },
+    { title: "My inventions", category: "Bio-graphy", rating: 5.0, price: 600, image:"https://m.media-amazon.com/images/I/71pGZBofMGL._SL1000_.jpg" },
+    { title: "Wings of fire", category: "Auto biography", rating: 4.9, price: 408 , image:"https://m.media-amazon.com/images/I/71KKZlVjbwL._SY342_.jpg"},
+    { title: "The white women", category: "mystery", rating: 4.5, price: 100,image:"https://m.media-amazon.com/images/I/418byl8zkqL.jpg" },
+];
+
+
+        const bookList = document.getElementById('book-list');
+        books.forEach(book => {
+            const div = document.createElement('div');
+            div.className = 'book-item';
+            div.innerHTML = `
+                <h3>${book.title}</h3>
+                <p>Category: ${book.category}</p>
+                <p>Rating: ${book.rating}</p>
+                <p>Price: ${book.price}</p>
+            `;
+            bookList.appendChild(div);
+        });
+    </script>
+</body>
+</html>

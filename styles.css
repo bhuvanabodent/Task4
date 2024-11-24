@@ -1,0 +1,252 @@
+
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Header Styles */
+header {
+    background: #004d99;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background: #003366;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    padding: 1rem 1.5rem;
+    display: block;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background: #00509e;
+    color: #fff;
+}
+
+/* Section Styling */
+section {
+    display: none;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section.active {
+    display: block;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #004d99;
+    margin-bottom: 1rem;
+}
+
+/* Filters Styling */
+.filters {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.filters label {
+    font-size: 1rem;
+}
+
+.filters select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Book List Styling */
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.book-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 5px;
+    width: calc(100% / 3 - 2rem);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+} 
+.book-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    object-fit: cover;
+}
+
+
+.book-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.book-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.book-item p {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Notes Section */
+#note-input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#add-note {
+    padding: 0.5rem 1rem;
+    background: #004d99;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+#add-note:hover {
+    background: #00509e;
+}
+
+#notes-list {
+    list-style: none;
+    padding: 0;
+}
+
+#notes-list li {
+    background: #e0f7fa;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Contact Form Styling */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    padding: 0.5rem 1rem;
+    background: #004d99;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.contact-form button:hover {
+    background: #00509e;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background: #004d99;
+    color: white;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .book-item {
+        width: calc(100% / 2 - 1rem);
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .book-item {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li a {
+        padding: 0.8rem 1rem;
+    }
+}
